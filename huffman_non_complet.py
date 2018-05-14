@@ -27,7 +27,6 @@ def frequences() :
     return table
 
 F = frequences()
-print(F)
 
 ###  la classe Arbre
 
@@ -40,7 +39,7 @@ class Arbre :
         return self.gauche == None and self.droit == None
     def estVide(self):
         return self == None
-    def __repr__(self):
+    def __str__(self):
         return '<'+ str(self.lettre)+'.'+str(self.gauche)+'.'+str(self.droit)+'>'
 
 
@@ -49,15 +48,17 @@ def arbre_huffman() :
     # à compléter
     liste2 = []
     heapify(liste2)
-    print(liste2)
     for i in range(len(caracteres)):
         heappush(liste2, (proba[i], caracteres[i], Arbre(caracteres[i])))
-    print(liste2)
-    print(type(liste2))
-    while len(liste2) >= 2:
-        freq1,gauche = heappop(liste2)
-        freq2, lettre2, droite = heappop(liste2)
-        heappush(liste2, (freq1 + freq2, Arbre(None ,gauche, droite)))
+    for i in range(len(liste2)-1):
+        add = []
+        add.append(heappop(liste2))
+        add.append(heappop(liste2))
+        freq1 = add[0][0]
+        freq2 = add[1][0]
+        gauche = add[0][2]
+        droite = add[1][2]
+        heappush(liste2, (freq1 + freq2 , "", Arbre(None, gauche, droite)))
     print(liste2)
 arbre_huffman()
 
