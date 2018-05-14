@@ -40,41 +40,54 @@ class Arbre :
         return self.gauche == None and self.droit == None
     def estVide(self):
         return self == None
-    def __str__(self):
+    def __repr__(self):
         return '<'+ str(self.lettre)+'.'+str(self.gauche)+'.'+str(self.droit)+'>'
 
 
 ###  Ex.1  construction de l'arbre d'Huffamn utilisant la structure de "tas binaire"
-#def arbre_huffman(frequences) :
+def arbre_huffman() :
     # à compléter
+    liste2 = []
+    heapify(liste2)
+    print(liste2)
+    for i in range(len(caracteres)):
+        heappush(liste2, (proba[i], caracteres[i], Arbre(caracteres[i])))
+    print(liste2)
+    print(type(liste2))
+    while len(liste2) >= 2:
+        freq1,gauche = heappop(liste2)
+        freq2, lettre2, droite = heappop(liste2)
+        heappush(liste2, (freq1 + freq2, Arbre(None ,gauche, droite)))
+    print(liste2)
+arbre_huffman()
 
 ###  Ex.2  construction du code d'Huffamn
 
 #def parcours(arbre,prefixe,code) :    
     # à compléter
 
-def code_huffman(arbre) :
-    # on remplit le dictionnaire du code d'Huffman en parcourant l'arbre
-    code = {}
-    parcours(arbre,'',code)
-    return code
+# def code_huffman(arbre) :
+#     # on remplit le dictionnaire du code d'Huffman en parcourant l'arbre
+#     code = {}
+#     parcours(arbre,'',code)
+#     return code
 
 
 
 
 ###  Ex.3  encodage d'un texte contenu dans un fichier
 
-def encodage(dico,fichier) :
+# def encodage(dico,fichier) :
     # à compléter
 
-encode = encodage(dico,'leHorla.txt')
-print(encode)
+# encode = encodage(dico,'leHorla.txt')
+# print(encode)
 
 
 ###  Ex.4  décodage d'un fichier compresse
 
-def decodage(arbre,fichierCompresse) :
+# def decodage(arbre,fichierCompresse) :
     # à compléter
 
-decode = decodage(H,'leHorlaEncoded.txt')
-print(decode)
+# decode = decodage(H,'leHorlaEncoded.txt')
+# print(decode)
