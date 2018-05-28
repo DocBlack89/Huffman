@@ -64,14 +64,15 @@ arbre_huffman()
 
 ###  Ex.2  construction du code d'Huffamn
 
-#def parcours(arbre,prefixe,code) :    
     # à compléter
+def parcours(arbre,prefixe,code) :    
+    #à compléter
 
-# def code_huffman(arbre) :
-#     # on remplit le dictionnaire du code d'Huffman en parcourant l'arbre
-#     code = {}
-#     parcours(arbre,'',code)
-#     return code
+def code_huffman(arbre) :
+    # on remplit le dictionnaire du code d'Huffman en parcourant l'arbre
+    code = {}
+    parcours(arbre,'',code)
+    return code
 
 
 
