@@ -4,6 +4,7 @@
 ####################################################
 
 from heapq import *
+import math
 
 ###  distribution de proba sur les letrres
 
@@ -56,23 +57,39 @@ def arbre_huffman() :
         add.append(heappop(liste2))
         freq1 = add[0][0]
         freq2 = add[1][0]
+        freq = round(float(freq1+freq2), 5)
         gauche = add[0][2]
         droite = add[1][2]
-        heappush(liste2, (freq1 + freq2 , "", Arbre(None, gauche, droite)))
-    print(liste2)
+        heappush(liste2, (freq, "", Arbre(freq, gauche, droite)))
+    return liste2
 arbre_huffman()
 
 ###  Ex.2  construction du code d'Huffamn
 
-def parcours(arbre,prefixe,code) :    
+def parcours(arbre, prefixe, code) :
+    # if prefixe == 0:
+    #     try : 
+    #         while arbre.gauche != None and arbre.droit != None:
+    #             arbre = arbre.gauche
+    #             print(arbre)
+    #             if arbre.gauche == None:
+    #                 if arbre.droit == None:
+    #                     arbre = arbre.droit
+    #     except AttributeError:
+
+    print(arbre.gauche.gauche)
+    if prefixe == 1:
+        print(arbre.droit)
     #à compléter
 
-def code_huffman(arbre) :
+def code_huffman() :
     # on remplit le dictionnaire du code d'Huffman en parcourant l'arbre
+    arbre = arbre_huffman()
+    arbre = arbre[0][2]
     code = {}
-    parcours(arbre,'',code)
+    parcours(arbre,0,code)
     return code
-
+code_huffman()
 
 
 
