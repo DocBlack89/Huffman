@@ -64,7 +64,6 @@ arbre_huffman()
 
 ###  Ex.2  construction du code d'Huffamn
 
-    # à compléter
 def parcours(arbre,prefixe,code) :    
     #à compléter
 
